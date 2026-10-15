@@ -1,0 +1,25 @@
+.drawer-headline { margin: -4px 0 0; color: var(--text-2); font-size: 14px; line-height: 1.45; }
+.drawer-outcome { margin: 0 0 4px; font-size: 14px; line-height: 1.55; }
+.drawer-list { margin: 0 0 4px; padding-left: 18px; font-size: 13.5px; line-height: 1.5; }
+.drawer-list li + li { margin-top: 4px; }
+.drawer-skills { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.skill-chip { padding: 2px 8px; border-radius: 999px; background: var(--surface2); color: var(--text-2); font-size: 12px; }
+.drawer-posting { margin-top: 12px; }
+.drawer-posting summary { cursor: pointer; color: var(--text-2); font-size: 13px; font-weight: 600; }
+.drawer-posting .posting { margin-top: 8px; max-height: 320px; overflow-y: auto; white-space: pre-wrap; font-size: 13px; line-height: 1.5; color: var(--text-2); }
+.drawer-note { margin: 12px 0 0; color: var(--text-3); font-size: 12.5px; }
+.drawer-section { padding: 14px 0; border-top: 1px solid var(--border); }
+.drawer-section h4 { margin: 0 0 8px; }
+.drawer-section h5 { margin: 12px 0 6px; font-size: 13px; }
+.drawer-section .copy-button + .copy-button { margin-left: 8px; }
+.drawer-text { white-space: pre-wrap; font: inherit; margin: 0 0 8px; padding: 10px 12px;
+  background: var(--surface2); border-radius: 8px; }
+.drawer-answer + .drawer-answer { margin-top: 12px; }
+.drawer-files { margin: 0; padding-left: 18px; }
+.drawer-extras { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+.drawer-flags { margin: 0 0 10px; }
+.drawer-flags .uw-flag:first-child { margin-left: 0; }
+.drawer-facts { display: grid; gap: 7px; margin: 0; }
+.drawer-facts div { display: grid; grid-template-columns: 104px 1fr; gap: 12px; }
+.drawer-facts dt { color: var(--text-3); font-size: 12px; padding-top: 1px; }
+.drawer-facts dd { margin: 0; font-size: 13px; line-height: 1.45; }

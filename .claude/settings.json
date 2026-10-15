@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 code/*)",
+      "Bash(./setup.sh)",
+      "mcp__upwork__upwork__find_jobs",
+      "mcp__upwork__upwork__find_saved_jobs",
+      "mcp__upwork__upwork__get_account",
+      "mcp__upwork__upwork__get_agency",
+      "mcp__upwork__upwork__get_draft",
+      "mcp__upwork__upwork__get_freelancer_dashboard",
+      "mcp__upwork__upwork__get_freelancer_financials",
+      "mcp__upwork__upwork__get_messages",
+      "mcp__upwork__upwork__get_preview",
+      "mcp__upwork__upwork__get_profile",
+      "mcp__upwork__upwork__get_tool_help",
+      "mcp__upwork__upwork__get_upload_status",
+      "mcp__upwork__upwork__list_accounts",
+      "mcp__upwork__upwork__list_contracts",
+      "mcp__upwork__upwork__list_freelancer_proposals",
+      "mcp__upwork__upwork__list_milestones",
+      "mcp__upwork__upwork__list_offers"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*[Uu]pwork.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PROJECT_DIR}/code/upwork_limit.py\" || exit 2"
+          }
+        ]
+      }
+    ]
+  }
+}

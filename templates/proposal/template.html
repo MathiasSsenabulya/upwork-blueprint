@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>{{DOC_TITLE}}</title>
+<style>
+  :root {
+    --bg: #ece5d7; --paper: #fbf9f4; --ink: #1c1712; --text: #2a231b; --muted: #6f6656;
+    --faint: #9a9081; --accent: #c1663e; --rule: #e6ded0; --open: #b08968;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); padding: 24px 12px 56px;
+         font: 12.5px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, system-ui, sans-serif;
+         -webkit-font-smoothing: antialiased; }
+  .sheet { width: 210mm; min-height: 297mm; max-width: 100%; margin: 0 auto; background: var(--paper);
+           box-shadow: 0 20px 54px rgba(28,23,18,.12); padding: 20mm 18mm 16mm; }
+  p { margin: 0; }
+
+  /* The head: what is being built, for whom, on which day. */
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8mm;
+         margin-bottom: 9mm; }
+  h1 { font-family: "Tiempos Text", Georgia, "Iowan Old Style", ui-serif, serif; font-weight: 500; color: var(--ink);
+       font-size: 28px; line-height: 1.15; margin: 0 0 2.5mm; }
+  .sub { color: var(--muted); font-size: 13px; }
+  .who { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint);
+         white-space: nowrap; padding-top: 3mm; }
+
+  /* The optional walkthrough: one card, one link. The page reads whole without it. */
+  .video { display: flex; align-items: center; gap: 5mm; text-decoration: none; color: inherit;
+           border: 1px solid var(--rule); border-radius: 2.5mm; padding: 4mm 5mm; margin-bottom: 5mm; }
+  .play { width: 11mm; height: 11mm; border-radius: 50%; background: var(--accent); flex: none;
+          position: relative; }
+  .play::after { content: ""; position: absolute; left: 4.3mm; top: 3.3mm; border-style: solid;
+                 border-width: 2.2mm 0 2.2mm 3.5mm; border-color: transparent transparent transparent #fff; }
+  .vtext b { display: block; font-size: 13px; font-weight: 600; color: var(--ink); }
+  .vtext span { font-size: 11px; color: var(--muted); }
+  .vlen { margin-left: auto; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; }
+
+  /* Eight parts, one rhythm: the label on the left, the line that answers it on the right. */
+  .part { display: grid; grid-template-columns: 42mm minmax(0, 1fr); gap: 0 6mm; align-items: baseline;
+          padding: 5.5mm 0; border-top: 1px solid var(--rule); overflow-wrap: anywhere; }
+  .label { display: flex; align-items: baseline; gap: 3mm; font-size: 10px; letter-spacing: .12em;
+           text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .label .n { font-family: "Tiempos Text", Georgia, serif; font-size: 15px; letter-spacing: 0; color: var(--accent);
+              font-weight: 400; line-height: 1; min-width: 3mm; }
+  .line { font-family: "Tiempos Text", Georgia, "Iowan Old Style", ui-serif, serif; font-size: 16px;
+          line-height: 1.35; color: var(--ink); text-wrap: balance; }
+  .items { list-style: none; margin: 2.5mm 0 0; padding: 0; font-size: 11.5px; color: var(--muted); }
+  .items li { position: relative; padding-left: 4.5mm; }
+  .items li + li { margin-top: 1mm; }
+  .items li::before { content: ""; position: absolute; left: 0; top: .7em; width: 2mm; height: 1px;
+                      background: var(--accent); }
+
+  .missing { color: var(--open); font-style: italic; }
+
+  /* Screens only: an A4 sheet is narrower than 800px and would print as the phone layout. */
+  @media screen and (max-width: 800px) {
+    body { padding: 10px 8px 36px; }
+    .sheet { padding: 10mm 7mm; min-height: 0; }
+    .top { flex-direction: column; gap: 2mm; }
+    .who { padding-top: 0; order: -1; white-space: normal; }
+    .part { grid-template-columns: minmax(0, 1fr); gap: 2mm 0; }
+  }
+  /* The PDF. Chrome paints nothing into a page margin, so the margin is the sheet's own
+     padding, repeated on every page, and the paper colour runs to the edge. */
+  @media print {
+    html, body { background: var(--paper); }
+    body { padding: 0; }
+    .sheet { box-shadow: none; width: auto; min-height: 0; padding: 16mm 18mm 14mm;
+             -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .top, .video, .part { break-inside: avoid; }
+    @page { size: A4 portrait; margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div>
+      <h1>{{TITLE}}</h1>
+      <p class="sub">{{FOR}} {{CLIENT}} · {{DATE}}</p>
+    </div>
+    <p class="who">{{MEMBER}}</p>
+  </div>
+
+  {{VIDEO}}
+
+  <div class="parts">
+    {{PARTS}}
+  </div>
+
+</div>
+</body>
+</html>
