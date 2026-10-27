@@ -11,7 +11,7 @@ needs the free Upwork connector. Details are in
 [Requirements](#requirements) and [What it costs to run](#what-it-costs-to-run).
 
 1. Clone it anywhere on your computer:
-   `git clone https://github.com/automatable-skool/upwork-blueprint-day1.git`
+   `git clone https://github.com/MathiasSsenabulya/upwork-blueprint.git`
 2. Open a terminal in the folder and run `./setup.sh` once. It creates your own
    files and `.env`
 3. Follow [Connect Upwork](#connect-upwork), then run `/about-me`. It asks about
